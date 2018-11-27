@@ -1,0 +1,15 @@
+Try manually unmounting disks
+
+umount /mnt/diskmount
+(where diskmount could be diskX and X is the number assigned, or diskmount is cache).
+
+If that doesn't work you can try:
+
+umount -l /mnt/diskmount
+The -l is for a lazy unmount - this can lead to data loss.
+
+Before lazy unmounting it is highly recommend trying to determine what's keeping the file system mounted with something like:
+
+lsof 2>/dev/null | grep /mnt
+
+Midnight Commander is often the cullprit here
